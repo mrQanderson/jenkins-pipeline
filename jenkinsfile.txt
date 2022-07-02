@@ -1,0 +1,37 @@
+pipeline {
+    agent any
+    
+    environment {
+        PROJECT_NAME = "Apollo 2"
+        OWNER_NAME = "Andrii Sidachenko"
+    }
+
+    stages {
+        stage('1-Build') {
+            steps {
+                echo 'Start of the Build Stage'
+                echo 'Building....'
+                echo 'End of the Build Stage'
+            }
+        }
+        stage('2-Test') {
+            steps {
+                echo 'Start of the Test Stage'
+                echo 'Testing....'
+                sh "ls -la"
+                echo "Hello ${OWNER_NAME}"
+                echo "Project name is ${PROJECT_NAME}"
+                echo 'End of the Test Stage'
+            }
+        }
+        stage('3-Deploy') {
+            steps {
+                echo 'Start of the Deploy Stage'
+                echo 'Deploying....'
+                // sh "python --version"
+                echo 'End of the Deploy Stage'
+            }
+        }
+    }
+
+}
